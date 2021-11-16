@@ -14,7 +14,7 @@ def gety(x):
     return math.exp(x) * (math.sin(x) - math.cos(x)) / 2
 
 def EulerMethod(h, x, w):
-    return w + h * getf(x, w)
+    return w + h * getf(x+h, w)
 
 def RK(h, x, w):
     k1 = getf(x, w)
@@ -23,10 +23,10 @@ def RK(h, x, w):
     k4 = getf(x + h, w + k3)
     return w + h * (k1 + 2 * (k2 + k3) + k4) / 6
 
-h = getFloat("Enter the initial guess for h: ")
-y0 = getFloat("Enter the initial guess for y0: ")
-x0 = getFloat("Enter the initial guess for x0: ")
-xn = getFloat("Enter the initial guess for xn: ")
+h = getFloat("Enter the value for h: ")
+x0 = getFloat("Enter the value for x0: ")
+xn = getFloat("Enter the value for xn: ")
+y0 = getFloat("Enter the value for y0: ")
 n, EulerW, RKW = int((xn-x0)/h), y0, y0
 
 for i in range(0, n):
